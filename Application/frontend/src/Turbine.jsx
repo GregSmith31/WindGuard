@@ -21,9 +21,9 @@ export default function Turbine({ rotorRPM,predictionData }) {
 
         
         if (!rotorRPM || rotorRPM.RotorRPM == null) return;
-        const speed = rotorRPM.RotorRPM * (2 * Math.PI / 60); // Convert RPM to radians/sec
+        const speed = rotorRPM.RotorRPM * (2 * Math.PI / 60); 
         if (animations.actions[animationName]) {
-            animations.actions[animationName].timeScale = speed; // Adjust animation speed
+            animations.actions[animationName].timeScale = speed; 
         }
     }, [rotorRPM?.RotorRPM, animations, animationName]);
 
@@ -42,14 +42,14 @@ export default function Turbine({ rotorRPM,predictionData }) {
         
         if (!sockRef.current || !rotorRPM) return;
 
-        // Get current wind values (fallbacks if missing)
+        
         const windDir = rotorRPM.WindDirAbs ?? 100;
         const windGust = rotorRPM.WindDirRel ?? 2;
 
-        // Smooth rotation towards the new wind direction
+
         sockRef.current.rotation.y += (windDir * (Math.PI / 180) - sockRef.current.rotation.y) * 0.1;
 
-        // Add natural swaying effect
+
         sockRef.current.rotation.z = Math.sin(clock.elapsedTime * 2) * (windGust * 0.02);
     });
 

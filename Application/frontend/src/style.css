@@ -83,39 +83,39 @@ canvas {
 }
 
 .input-label {
-    flex: 1; /* Allow label to take up space */
-    font-weight: bold; /* Make label bold for emphasis */
-    margin-right: 10px; /* Space between label and input */
+    flex: 1; 
+    font-weight: bold;
+    margin-right: 10px; 
     
 }
 
 .text-input {
-    flex: 1; /* Allow input to take up space proportionately */
-    padding: 8px; /* Padding for comfort */
-    border: 1px solid #ccc; /* Border */
-    border-radius: 4px; /* Rounded corners */
-    width: 100%; /* Full width */
-    max-width: 80px; /* Limit the width for numeric input */
+    flex: 1; 
+    padding: 8px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px;
+    width: 100%; 
+    max-width: 80px; 
 }
 
 .submit-btn {
-    background-color: #007BFF; /* Blue background */
-    color: white; /* White text */
-    border: none; /* No border */
-    padding: 1em 50%; /* Padding */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor */
-    transition: background-color 0.3s; /* Smooth transition */
-    width: 100%; /* Full width */
+    background-color: #007BFF; 
+    color: white; 
+    border: none; 
+    padding: 1em 50%; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s;
+    width: 100%; 
 }
 
 .submit-btn:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #0056b3; 
 }
 
 .error-message {
-    color: red; /* Red for error message */
-    margin-top: 10px; /* Spacing above error message */
+    color: red;
+    margin-top: 10px; 
 }
 
 /* Close button */
@@ -123,37 +123,37 @@ canvas {
     cursor: pointer;
     float: right;
     font-size: 22px;
-    color: #FFC107; /* Solar Yellow for visibility */
+    color: #FFC107;
     transition: color 0.3s ease-in-out;
 }
 
 .close:hover {
-    color: #FF9800; /* Slightly darker yellow on hover */
+    color: #FF9800;
 }
 .submitted-values-panel {
     position: fixed;
     left: 2.5%;
-    top: 10%; /* Adjust as needed */
-    width: 300px; /* Width of the panel */
-    background-color: rgba(10, 25, 47, 0.85); /* Background color */
-    color: #E3E6E8; /* Text color */
-    padding: 15px; /* Padding for content */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 174, 239, 0.3); /* Shadow for depth */
-    z-index: 50; /* Ensure it appears above other content */
+    top: 10%;
+    width: 300px; 
+    background-color: rgba(10, 25, 47, 0.85); 
+    color: #E3E6E8; 
+    padding: 15px;
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0, 174, 239, 0.3); 
+    z-index: 50; 
 }
 
 .submitted-values-panel h3 {
-    margin: 0 0 10px; /* Margin below the heading */
+    margin: 0 0 10px; /
 }
 
 .submitted-values-panel ul {
-    list-style-type: none; /* Remove bullet points */
-    padding: 0; /* Remove padding */
+    list-style-type: none; 
+    padding: 0; 
 }
 
 .submitted-values-panel li {
-    margin: 5px 0; /* Margin for list items */
+    margin: 5px 0; 
 }
 
 .predicted-power-panel {
@@ -162,21 +162,21 @@ canvas {
     left: 2.5%;
     margin-top: 1%;
     width: 25%;
-    background-color: rgba(10, 25, 47, 0.85); /* Background color */
-    color: #E3E6E8; /* Text color */
-    padding: 15px; /* Padding for content */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 174, 239, 0.3); /* Shadow for depth */
-    z-index: 50; /* Ensure it appears above other content */
+    background-color: rgba(10, 25, 47, 0.85); 
+    color: #E3E6E8; 
+    padding: 15px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0, 174, 239, 0.3); 
+    z-index: 50; 
 }
 .tab-buttons {
     display: flex;
     justify-content: space-around;
-    margin-bottom: 15px; /* Spacing below tabs */
+    margin-bottom: 15px; 
 }
 
 .tab-buttons button {
-    background: #00AEEF; /* Electric Cyan */
+    background: #00AEEF; 
     color: #0A192F;
     border: none;
     padding: 10px 15px;
@@ -187,33 +187,33 @@ canvas {
 }
 
 .tab-buttons button.active {
-    background: #4CAF50; /* Energy Green for active tab */
+    background: #4CAF50;
 }
 
 .coefficient-rank-panel {
     position: fixed;
     right: 2.5%;
-    top: 10%; /* Adjust as needed */
-    width: 300px; /* Width of the panel */
-    background-color: rgba(10, 25, 47, 0.85); /* Background color */
-    color: #E3E6E8; /* Text color */
-    padding: 15px; /* Padding for content */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 174, 239, 0.3); /* Shadow for depth */
-    z-index: 50; /* Ensure it appears above other content */
+    top: 10%; 
+    width: 300px; 
+    background-color: rgba(10, 25, 47, 0.85); 
+    color: #E3E6E8;
+    padding: 15px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0, 174, 239, 0.3);
+    z-index: 50; 
 }
 
 .coefficient-rank-panel h3 {
-    margin: 0 0 10px; /* Margin below the heading */
+    margin: 0 0 10px; 
 }
 
 .coefficient-rank-panel ul {
-    list-style-type: none; /* Remove bullet points */
-    padding: 0; /* Remove padding */
+    list-style-type: none; 
+    padding: 0; 
 }
 
 .coefficient-rank-panel li {
-    margin: 5px 0; /* Margin for list items */
+    margin: 5px 0; 
 }
 
 .tooltip {
@@ -223,28 +223,28 @@ canvas {
 
 .tooltip-icon {
     cursor: pointer;
-    background-color: #007BFF; /* Blue background */
-    color: white; /* White text color */
-    border-radius: 50%; /* Make it circular */
-    width: 20px; /* Width of the icon */
-    height: 20px; /* Height of the icon */
-    display: flex; /* Center the text */
-    align-items: center; /* Center vertically */
-    justify-content: center; /* Center horizontally */
-    margin-left: 5px; /* Spacing */
-    font-size: 14px; /* Font size for the question mark */
+    background-color: #007BFF; 
+    color: white; 
+    border-radius: 50%; 
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    margin-left: 5px; 
+    font-size: 14px; 
 }
 .tooltip-text {
     visibility: hidden;
     width:33vw;
-    background-color: rgba(10, 25, 47, 0.85); /* Background color */
-    color: #E3E6E8; /* Text color */
+    background-color: rgba(10, 25, 47, 0.85); 
+    color: #E3E6E8;
     text-align: left;
-    padding: 10px; /* Padding */
-    border-radius: 5px; /* Rounded corners */
+    padding: 10px; 
+    border-radius: 5px; 
     position: absolute;
     z-index: 1;
-    bottom: 125%; /* Position above the icon */
+    bottom: 125%; 
     left: 50%;
     transform: translateX(-50%);
     opacity: 0;
@@ -258,21 +258,21 @@ canvas {
 
 .tooltip:hover .tooltip-text {
     visibility: visible;
-    opacity: 1; /* Show tooltip on hover */
+    opacity: 1; 
 }
 
 
 
 .timestamp-display {
-    position: fixed; /* Keep it fixed on the screen */
-    top: 2.5%; /* Adjust the vertical position */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Center alignment */
+    position: fixed; 
+    top: 2.5%;
+    left: 50%; 
+    transform: translateX(-50%); 
     text-align: center;
-    font-size: 1.25em; /* Adjust size as needed */
+    font-size: 1.25em; 
     font-weight: bold;
-    color: #007BFF; /* Ensure contrast with background */
-    z-index: 50; /* Ensure it appears above other elements */
+    color: #007BFF; 
+    z-index: 50; 
 }
 
 

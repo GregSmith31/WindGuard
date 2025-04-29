@@ -87,7 +87,7 @@ export default function Interface({ onRotorRPMChange, onPredictionChange }) {
                     setSubmittedValues(numericInputs);
                     setPredictedPower(response.data);
                     onPredictionChange(response.data);
-                    console.log(response.data);
+                    //console.log(response.data);
                 })
                 .catch(error => {
                     if (error.name === "AbortError") {
@@ -116,7 +116,7 @@ export default function Interface({ onRotorRPMChange, onPredictionChange }) {
         }
         
 
-        return () => clearInterval(interval); // Cleanup on unmount
+        return () => clearInterval(interval); 
     }, [isTimestampInitialized]);
 
     const handleBreakdownClick = async () => {
@@ -126,15 +126,16 @@ export default function Interface({ onRotorRPMChange, onPredictionChange }) {
         }
     
         const controller = new AbortController();
-        setRequestController(controller); // Store the new controller
+        setRequestController(controller); 
     
         setModalOpen(false);
         const response = await axios.get("http://localhost:8080/api/breakdown");
         const data = response.data;
     
         for (let row of data) {
-            if (controller.signal.aborted){setIsTimestampInitialized(false); break}; // Stop the loop if aborted
+            if (controller.signal.aborted){setIsTimestampInitialized(false); break}; 
             const timestamp = new Date(row.Timestamps);
+            
             setCurrentTimestamp(timestamp);
             setIsTimestampInitialized(true);
     
@@ -186,7 +187,7 @@ export default function Interface({ onRotorRPMChange, onPredictionChange }) {
             const reader = new FileReader();
             reader.onload = async (e) => {
                 const text = e.target.result;
-                const lines = text.split('\n').map(line => line.trim()).filter(line => line); // Trim and filter empty lines
+                const lines = text.split('\n').map(line => line.trim()).filter(line => line); 
                 const headers = lines[0].split(',').map(header => header.trim());
 
                 const expectedHeaders = [
@@ -197,31 +198,39 @@ export default function Interface({ onRotorRPMChange, onPredictionChange }) {
                     "GenPh2Temp", "GenPh3Temp", "GenBearTemp"
                 ];
                 console.log(headers);
-                
+                const displayHeaders = ["WindSpeed", "WindDirAbs", "WindDirRel", "Pitch",
+    "GenRPM", "RotorRPM", "EnvirTemp", "NacelTemp",
+    "GearOilTemp", "GearBearTemp", "GenPh1Temp",
+    "GenPh2Temp", "GenPh3Temp", "GenBearTemp"]
 
-                // Validate headers
                 if (JSON.stringify(headers).includes( JSON.stringify(expectedHeaders))) {
                     console.log("File uploaded successfully:", file);
                     closeModal();
 
-                    // Loop through each row after the header
+                    
                     for (let i = 1; i < lines.length; i++) {
                         const currentRow = lines[i].split(',').map(value => value.trim());
 
-                        // Assuming that Timestamps is the first column
-                        const timestamp = new Date(currentRow[0]);
+                        const [datePart, timePart] = currentRow[0].split(' ');
+                        const [day, month, year] = datePart.split('/');
+                        const [hour, minute] = timePart.split(':');
+                        const timestamp = new Date(year, month - 1, day, hour, minute);
+                        
                         setCurrentTimestamp(timestamp);
                         setIsTimestampInitialized(true);
 
                         const numericInputs = {};
                         headers.forEach((header, index) => {
-                            numericInputs[header] = parseFloat(currentRow[index]);
+                            if(displayHeaders.includes(header)){
+                            numericInputs[header] = parseFloat(currentRow[index]);}
                         });
-
-                        // Send the data to the server
+                        
+                        
+                        
+                        
                         await axios.post("http://localhost:8080/predictui", numericInputs)
                             .then(response => {
-                                console.log("Response from server:", response.data);
+                                //console.log("Response from server:", response.data);
                                 setSubmittedValues(numericInputs);
                                 setPredictedPower(response.data);
                                 onPredictionChange(response.data);
@@ -252,6 +261,7 @@ export default function Interface({ onRotorRPMChange, onPredictionChange }) {
     };
 
     const formatTimestamp = (date) => {
+        
         if (!date) return '';
         return date.toLocaleString(); // Format to local date string
     };
